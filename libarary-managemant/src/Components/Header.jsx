@@ -1,9 +1,10 @@
+
 import React from "react";
 import {Link} from 'react-router-dom'
 function Header() {
   return (
     <div>
-      <header className="bg-[#3a3e3e]  text-[#dbb7a4]">
+      <header className="bg-[#3a3e3e]  text-[#dbb7a4] mb-10">
         <nav className="flex justify-between items-center p-10 m-auto px-20">
           
           <Link className="flex justify-center gap-4 items-center" to="/">

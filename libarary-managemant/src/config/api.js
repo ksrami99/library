@@ -14,3 +14,12 @@ export const addData=async(data)=>{
         throw(error)
     }
 }
+
+export const loginupuser=async(data)=>{
+    try {
+        const res = await api.post('/user/login',data)
+        return res.data
+    } catch (error) {
+        throw(error)
+    }
+}

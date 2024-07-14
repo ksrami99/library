@@ -1,6 +1,6 @@
 const userModel = require('../models/usermodels')
 const bcrypt = require('bcrypt')
-
+const jwt = require('jsonwebtoken')
 exports.signup=async(req,res)=>{
     try {
         const existinguer = await userModel.findOne({
@@ -30,11 +30,11 @@ exports.signup=async(req,res)=>{
 
 }
 
-exports.login=async()=>{
+exports.login=async(req, res)=>{
     try {
         const user= await userModel.findOne({
             email:req.body.email,
-            role:req.body.role
+           
         })
         if(!user){
            return res.send({
@@ -59,3 +59,5 @@ exports.login=async()=>{
         throw(error)   
     }
 }
+
+
