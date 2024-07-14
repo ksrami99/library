@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const userRoutes = require("./routes/userRoutes");
+const bookRoutes = require("./routes/bookRoutes");
+
 const connectDB = require("./config/db");
 dotenv.config();
 
@@ -20,3 +22,5 @@ connectDB()
   }); 
 
 app.use("/api/user", userRoutes);
+app.use("/api/book", bookRoutes);
+

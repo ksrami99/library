@@ -8,6 +8,7 @@ import { getUser } from "./config/api";
 import { loginSuccess } from "./Redux/slices/authslice";
 import LandingPage from "./Components/LandingPage";
 import ProfilePage from "./Components/ProfilePage";
+import AddBooks from "./Components/AddBooks";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/login" element={<SignIn />} />
           <Route path="/register" element={<SignUp />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/addbooks" element={<AddBooks />} />
         </Routes>
       </BrowserRouter>
     </>

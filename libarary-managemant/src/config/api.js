@@ -14,6 +14,15 @@ export const addData=async(data)=>{
         throw(error)
     }
 }
+export const InsertBook=async(data)=>{
+    try {
+        const res = await api.post('book/addbook',data)
+        console.log(res.data)
+        return res.data
+    } catch (error) {
+        throw(error)
+    }
+}
 
 export const loginupuser=async(data)=>{
     try {

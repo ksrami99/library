@@ -2,41 +2,31 @@ const mongoose = require('mongoose');
 
 const bookSchema = new mongoose.Schema({
   title: {
-    type: String,
-    required: true
+    type: String
   },
   authors: {
-    type: [String],
-    required: true
+    type: [String]
   },
   publishedDate: {
-    type: Date,
-    required: true
+    type: Date
   },
   pageCount: {
-    type: Number,
-    required: true
+    type: String
   },
   isbn: {
-    type: String,
-    required: true,
-    unique: true
+    type: String
   },
   language: {
-    type: String,
-    enum: ['English', 'Spanish', 'Franch', 'German','Hindi']
+    type: String
   },
   thumbnail: {
-    type: String,
-    required: true
+    type: String
   },
   chapters: {
-    type: Number,
-    required: true
+    type: String
   },
   description: {
-    type: String,
-    required: true
+    type: String
   }
 });
 

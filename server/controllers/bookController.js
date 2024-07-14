@@ -1,13 +1,16 @@
-const Book = require('../models/bookModel');
+const Book = require('../models/bookmodels');
 
 // Create a new book
 exports.createBook = async (req, res) => {
   try {
     const book = new Book(req.body);
     await book.save();
-    res.status(201).json(book);
+    return res.send({
+        book
+    })
   } catch (error) {
     res.status(400).json({ error: error.message });
+    throw(error)
   }
 };
 

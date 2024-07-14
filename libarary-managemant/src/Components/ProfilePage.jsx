@@ -2,20 +2,19 @@ import React from "react";
 import Header from "./Header";
 import BookComponant from "./BookComponant";
 import { useSelector } from "react-redux";
-import { useDispatch } from 'react-redux'
-import { logout } from '../Redux/slices/authslice'
-import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { logout } from "../Redux/slices/authslice";
+import { useNavigate, Link } from "react-router-dom";
 
 function ProfilePage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const logoutbtn=()=>{
-    dispatch(logout())
-    navigate('/')
-  }
-    
+  const logoutbtn = () => {
+    dispatch(logout());
+    navigate("/");
+  };
+
   const user = useSelector((state) => state.auth.user);
   console.log(user);
   return (
@@ -71,16 +70,27 @@ function ProfilePage() {
             </div>
             <button className="mt-4 bg-[#dbb7a4] text-[#3a3e3e] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
               Edit information
-            </button><br />
-            <button 
-            onClick={logoutbtn}
-            className="mt-4 bg-[#dbb7a4] text-[#3a3e3e] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-             LogOut
             </button>
-            <br/>
-            { user.role === 'Librarian' ? <button className="mt-4 bg-[#dbb7a4] text-[#3a3e3e] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-              Manage Books
-            </button> : "" }
+            <br />
+            <button
+              onClick={logoutbtn}
+              className="mt-4 bg-[#dbb7a4] text-[#3a3e3e] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              LogOut
+            </button>
+            <br />
+            {user.role === "Librarian" ? (
+              <Link>
+                <button
+                  onClick={navigate("/addbooks")}
+                  className="mt-4 bg-[#dbb7a4] text-[#3a3e3e] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                >
+                  Add Books
+                </button>
+              </Link>
+            ) : (
+              ""
+            )}
           </div>
           {/* Main Content */}
           <div className="lg:col-span-2">
