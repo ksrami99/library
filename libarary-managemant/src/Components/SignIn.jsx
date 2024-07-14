@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginupuser } from "../config/api";
 import {useDispatch,useSelector} from 'react-redux'
 import  { useState } from "react";
@@ -9,6 +9,7 @@ import {loginSuccess, loginFailure} from '../Redux/slices/authslice'
 
 function SignIn() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [data, setData] = useState({
     email: "",
@@ -29,6 +30,9 @@ function SignIn() {
     const { token, user, msg } = res;
     dispatch(loginSuccess({ user, token }));
     console.log(msg);
+
+    navigate('/')
+
   };
 
   return (

@@ -47,16 +47,33 @@ exports.login=async(req, res)=>{
                     msg:'passowrd is inccorect'
                 })
             }
-            const tokens=jwt.sign({userID:user._id},process.env.JWT_SECRET,{expiresIn:'1d'})
+            const token=jwt.sign({userID:user._id},process.env.JWT_SECRET,{expiresIn:'1d'})
             return res.send({
                 msg:'success',
-                tokens,
+                token, 
                 user
             })
         }
 
     } catch (error) {
         throw(error)   
+    }
+}
+
+
+exports.getCurrentuser=async(req,res)=>{
+    const userID= req.body.userID;
+    console.log(userID)
+    try{
+        const user = await userModel.findById(req.body.userID)
+        console.log(user)
+        return res.send({
+            user,
+            msg:'user get Success'
+           
+        })
+    }catch(error){
+        throw(error)
     }
 }
 

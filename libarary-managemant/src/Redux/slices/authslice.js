@@ -31,15 +31,15 @@ const authSlice = createSlice({
       state.token = null;
       state.error = null;
     },
-    loadToken: (state) => {
-      const token = localStorage.getItem('token');
-      if (token) {
-        state.token = token;
-      }
-    }
+    // loadToken: (state) => {
+    //   const token = localStorage.getItem('token');
+    //   if (token) {
+    //     state.token = token;
+    //   }
+    // }
   },
 });
 
-export const { loginSuccess, loginFailure, logout,loadToken } = authSlice.actions;
+export const { loginSuccess, loginFailure, logout } = authSlice.actions;
 
 export default authSlice.reducer;
