@@ -3,10 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import SignIn from "./Components/SignIn";
 import SignUp from "./Components/SignUp";
-import HomePage from "./Components/LandingPage";
 import {useDispatch,useSelector} from 'react-redux'
 import { getUser } from "./config/api";
 import { loginSuccess } from "./Redux/slices/authslice";
+import LandingPage from "./Components/LandingPage";
+import ProfilePage from "./Components/ProfilePage";
 
 
 function App() {
@@ -28,10 +29,10 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<SignIn />} />
           <Route path="/register" element={<SignUp />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </BrowserRouter>
     </>

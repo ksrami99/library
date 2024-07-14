@@ -3,7 +3,7 @@ import Search from './Search'
 import Books from './Books'
 import Header from './Header'
 
-function HomePage() {
+function LandingPage() {
   return (
     <div>
         <Header/>
@@ -36,4 +36,4 @@ function HomePage() {
   )
 }
 
-export default HomePage
+export default LandingPage

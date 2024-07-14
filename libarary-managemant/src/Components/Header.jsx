@@ -6,7 +6,11 @@ function Header() {
   const dispatch = useDispatch();
   const {isAuthenticated, user } = useSelector((state) => state.auth);
 
+ 
+
   return (
+
+    
 
     <div>
       <header className="bg-[#3a3e3e]  text-[#dbb7a4] mb-10">
@@ -19,7 +23,7 @@ function Header() {
           </Link>
           <div className="">
             <ul className="text-lg flex justify-center items-center border-[#dbb7a4] rounded-md p-2 w-20 bg-[#dbb7a4] text-[#3a3e3e]">
-               {isAuthenticated? <Link to="/">{user.username}</Link> : <Link to="/login">Login</Link> }
+               {isAuthenticated? <Link to="/profile">{user.username}</Link> : <Link to="/login">Login</Link> }
             </ul>
           </div>
         </nav>}

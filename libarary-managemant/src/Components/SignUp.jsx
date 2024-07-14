@@ -27,12 +27,12 @@ function SignUp() {
     e.preventDefault();
     const res = await addData(data);
     console.log(res);
-    if (res.msg === "success") {
+    // if (res.msg === "success") {
       //   setOpen(true);
-      setTimeout(() => {
+      // setTimeout(() => {
         navigate("/login"); // Navigate to login page after 2 seconds
-      }, 5000);
-    }
+      // }, 5000);
+    // }
   };
 
   return (
